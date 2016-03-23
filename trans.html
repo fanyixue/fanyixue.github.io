@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="viewport" content="width=320,user-scalable=no,initial-scale=1"/>
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1{ width:1600px; height:150px; background:red;  }
+</style>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById("div1");
+	var x=0; 
+	var y=0;
+	oDiv.addEventListener("touchstart",function(ev){
+		console.log(1)
+		var disX = ev.targetTouches[0].pageX - x;
+		var disY = ev.targetTouches[0].pageY - y;
+		function fnMove(ev){ 
+			console.log(disX+','+disY)
+			x = ev.targetTouches[0].pageX - disX;
+			y=ev.targetTouches[0].pageY - disY;
+			oDiv.style.webkitTransform = "translate("+x+"px,"+y+"px)";
+		}	
+		function fnEnd(){
+			//释放资源
+			oDiv.removeEventListener("touchmove",fnMove,false);
+			oDiv.removeEventListener("touchend",fnEnd,false);
+		}
+			
+		oDiv.addEventListener("touchmove",fnMove,false);
+		oDiv.addEventListener("touchend",fnEnd,false);
+		
+		ev.preventDefault();
+	},false);
+	
+ 
+};
+</script>
+</head>
+
+<body>
+<div id="div1">111111111111111</div>
+
+</body>
+</html>
