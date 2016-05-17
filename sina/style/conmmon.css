@@ -156,7 +156,7 @@ input{border:none;}
 .drop span i{display:inline-block; width:6px; height:6px; background:#D3D3D3; overflow:hidden; margin:0 3px;}
 .drop .active{background:#F60;}
 .c_listTab{position:relative; height:244px; overflow:hidden;}
-.c_list_scroll{left:0; top:10px;}
+.c_list_scroll{left:0; top:0px;}
 /*视频直播*/
 .sina_video{position:relative;}
 .video_icon{display:inline-block; width:34px; height:13px;background-position:0 -287px;}
